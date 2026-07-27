@@ -117,42 +117,68 @@ const currentPath = Astro.url.pathname;
 
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="lg:hidden fixed top-20 right-0 w-80 max-w-[85vw] h-[calc(100vh-5rem)] bg-bg-card border-l border-border shadow-xl translate-x-full transition-transform duration-300 ease-out z-50">
-        <div class="px-5 py-6 space-y-1 h-full overflow-y-auto">
+        <div class="px-5 py-6 space-y-1.5 h-full overflow-y-auto">
           <MobileNavLink href="/">Home</MobileNavLink>
-          <MobileNavLink href="/about">About Us</MobileNavLink>
-          <MobileNavLink href="/objectives">Objectives</MobileNavLink>
 
-          <div class="border-t border-border my-3 pt-3">
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Projects</p>
-            <MobileNavLink href="/projects/spread-smiles">Spread Smiles</MobileNavLink>
-            <MobileNavLink href="/projects/students-home-kotma">Student's Home Kotma</MobileNavLink>
-            <MobileNavLink href="/projects/sarvagun-siksha-abhiyan">Sarvagun Siksha Abhiyan</MobileNavLink>
-            <MobileNavLink href="/projects/tree-plantation-eye-checkup">Tree Plantation &amp; Eye Checkup</MobileNavLink>
-            <MobileNavLink href="/projects/school-development">School Development</MobileNavLink>
-            <MobileNavLink href="/projects/rural-development">Rural Development</MobileNavLink>
-            <MobileNavLink href="/projects/future-plans">Future Plans</MobileNavLink>
+          <!-- Accordion: About -->
+          <div class="border-b border-border/60 py-0.5">
+            <button data-target="acc-about" class="mobile-acc-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-text hover:text-primary hover:bg-primary-soft/50 transition-colors cursor-pointer rounded-lg">
+              <span>About Us</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mobile-acc-icon transition-transform duration-200"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="acc-about" class="hidden pl-2 pr-1 py-1 space-y-1 bg-bg-muted/60 rounded-lg my-1 border border-border/40">
+              <MobileNavLink href="/about">About Sarvagun</MobileNavLink>
+              <MobileNavLink href="/objectives">Objectives &amp; Mission</MobileNavLink>
+            </div>
           </div>
 
-          <div class="border-t border-border my-3 pt-3">
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Members</p>
-            <MobileNavLink href="/members/current-members">Current Members</MobileNavLink>
-            <MobileNavLink href="/members/join-us">Join Us</MobileNavLink>
-            <MobileNavLink href="/members/volunteers">Volunteers</MobileNavLink>
-            <MobileNavLink href="/members/rules-of-membership">Rules of Membership</MobileNavLink>
+          <!-- Accordion: Programs -->
+          <div class="border-b border-border/60 py-0.5">
+            <button data-target="acc-programs" class="mobile-acc-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-text hover:text-primary hover:bg-primary-soft/50 transition-colors cursor-pointer rounded-lg">
+              <span>Programs &amp; Activities</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mobile-acc-icon transition-transform duration-200"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="acc-programs" class="hidden pl-2 pr-1 py-1 space-y-1 bg-bg-muted/60 rounded-lg my-1 border border-border/40">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-secondary px-3 pt-2 pb-0.5">Key Projects</p>
+              <MobileNavLink href="/projects/spread-smiles">Spread Smiles</MobileNavLink>
+              <MobileNavLink href="/projects/students-home-kotma">Student's Home Kotma</MobileNavLink>
+              <MobileNavLink href="/projects/sarvagun-siksha-abhiyan">Sarvagun Siksha Abhiyan</MobileNavLink>
+              <MobileNavLink href="/projects/tree-plantation-eye-checkup">Tree Plantation &amp; Eye Checkup</MobileNavLink>
+              <MobileNavLink href="/projects/school-development">School Development</MobileNavLink>
+              <MobileNavLink href="/projects/rural-development">Rural Development</MobileNavLink>
+              <MobileNavLink href="/projects/future-plans">Future Plans</MobileNavLink>
+              <div class="border-t border-border/60 my-1.5 mx-3"></div>
+              <p class="text-[11px] font-bold uppercase tracking-wider text-secondary px-3 pt-1 pb-0.5">Community Activities</p>
+              <MobileNavLink href="/activities/doon-challengers-club">Doon Challengers Club</MobileNavLink>
+              <MobileNavLink href="/activities/personality-development-workshop">PD Workshop</MobileNavLink>
+            </div>
           </div>
 
-          <div class="border-t border-border my-3 pt-3">
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Join Hand</p>
-            <MobileNavLink href="/join-hand/helping-hand">Helping Hand</MobileNavLink>
-            <MobileNavLink href="/donate">Donation</MobileNavLink>
+          <!-- Accordion: Get Involved -->
+          <div class="border-b border-border/60 py-0.5">
+            <button data-target="acc-involved" class="mobile-acc-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-text hover:text-primary hover:bg-primary-soft/50 transition-colors cursor-pointer rounded-lg">
+              <span>Get Involved</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mobile-acc-icon transition-transform duration-200"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="acc-involved" class="hidden pl-2 pr-1 py-1 space-y-1 bg-bg-muted/60 rounded-lg my-1 border border-border/40">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-secondary px-3 pt-2 pb-0.5">Membership</p>
+              <MobileNavLink href="/members/current-members">Current Members</MobileNavLink>
+              <MobileNavLink href="/members/join-us">Join Us</MobileNavLink>
+              <MobileNavLink href="/members/volunteers">Volunteers</MobileNavLink>
+              <MobileNavLink href="/members/rules-of-membership">Rules of Membership</MobileNavLink>
+              <div class="border-t border-border/60 my-1.5 mx-3"></div>
+              <p class="text-[11px] font-bold uppercase tracking-wider text-secondary px-3 pt-1 pb-0.5">Support Us</p>
+              <MobileNavLink href="/join-hand/helping-hand">Helping Hand</MobileNavLink>
+              <MobileNavLink href="/donate">Donation</MobileNavLink>
+            </div>
           </div>
 
-          <MobileNavLink href="/gallery">Gallery</MobileNavLink>
+          <MobileNavLink href="/gallery">Photo Gallery</MobileNavLink>
           <MobileNavLink href="/annual-report">Annual Report</MobileNavLink>
-          <MobileNavLink href="/activities/doon-challengers-club">Doon Challengers Club</MobileNavLink>
-          <MobileNavLink href="/contact">Contact</MobileNavLink>
+          <MobileNavLink href="/contact">Contact Us</MobileNavLink>
+
           <div class="pt-4">
-            <a href="/donate" class="flex items-center justify-center gap-2 bg-festive text-white font-semibold tracking-wide px-5 py-3.5 rounded-xl shadow-md">
+            <a href="/donate" class="flex items-center justify-center gap-2 bg-festive text-white font-semibold tracking-wide px-5 py-3.5 rounded-xl shadow-md hover:bg-festive/90 transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               <span>Donate Now</span>
             </a>
@@ -282,6 +308,27 @@ const currentPath = Astro.url.pathname;
         backdrop.addEventListener('click', close);
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') close();
+        });
+
+        // Initialize Mobile Accordions
+        document.querySelectorAll('.mobile-acc-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = (btn as HTMLElement).dataset.target;
+            if (!targetId) return;
+            const content = document.getElementById(targetId);
+            const icon = btn.querySelector('.mobile-acc-icon');
+            if (content) {
+              const isHidden = content.classList.contains('hidden');
+              if (isHidden) {
+                content.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+              } else {
+                content.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+              }
+            }
+          });
         });
       }
 
