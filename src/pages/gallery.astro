@@ -30,8 +30,8 @@ const galleryItems = Array.from({ length: totalImages }, (_, i) => {
 <BaseLayout title="Photo Gallery" description="Photo gallery showcasing community programs, school development, and relief activities of Sarvagun Society across Uttarakhand.">
   <!-- Header Section -->
   <section class="bg-primary-hover text-white py-16 lg:py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary-hover via-primary/95 to-primary-hover/90 opacity-90"></div>
-    <div class="relative z-10 mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6 text-center">
+    <div class="absolute inset-0 bg-linear-to-r from-primary-hover via-primary/95 to-primary-hover/90 opacity-90"></div>
+    <div class="relative z-10 mx-auto max-w-page px-4 lg:px-6 text-center">
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-secondary mb-4">
         <span>Ground Impact • Uttarakhand</span>
       </div>
@@ -44,7 +44,7 @@ const galleryItems = Array.from({ length: totalImages }, (_, i) => {
 
   <!-- Gallery Section -->
   <section class="py-16 bg-bg">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
       <!-- Category Filter Pills (Client-side interactive) -->
       <div class="flex flex-wrap justify-center gap-2 mb-12" id="gallery-filters">
         <button data-filter="all" class="filter-btn active bg-primary text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xs transition-all cursor-pointer">
@@ -83,7 +83,7 @@ const galleryItems = Array.from({ length: totalImages }, (_, i) => {
               loading="lazy"
             />
             <!-- Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
+            <div class="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
               <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full w-fit mb-1 shadow-sm">
                 {item.category}
               </span>

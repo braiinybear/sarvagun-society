@@ -37,6 +37,12 @@
 - `--color-bg`: `#FAFAFA` (Soft Snow White)
 - `--color-text`: `#1C1917` (Dark Warm Stone)
 
+## Tailwind v4 Rules & Syntaxes
+
+- **Theme Tokens**: Use defined theme classes (`bg-primary-hover`, `text-primary`, `bg-primary-soft`) instead of hardcoded hex values (`bg-[#1E4334]`).
+- **Page Container Width**: Use `max-w-page` (generated from `--spacing-page: 1200px`) instead of `max-w-[var(--spacing-page)]`.
+- **Gradient Direction Syntax**: Use Tailwind v4 `bg-linear-to-r`, `bg-linear-to-b`, `bg-linear-to-t` instead of legacy `bg-gradient-to-*`.
+
 ## Environment Variables (`.env.example`)
 
 Set these in Cloudflare Pages Dashboard under **Settings → Environment Variables**:

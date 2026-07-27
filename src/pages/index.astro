@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Home" description="Sarvagun Society is a registered non-profit NGO working for education, rural development, and community empowerment in Dehradun, Uttarakhand.">
   <!-- Hero Section -->
-  <section class="relative bg-[#1E4334] text-white py-20 lg:py-32 overflow-hidden">
+  <section class="relative bg-primary-hover text-white py-20 lg:py-32 overflow-hidden">
     <!-- Background Image with Soft Dark Overlay -->
     <div class="absolute inset-0 z-0">
       <img 
@@ -12,10 +12,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         alt="Sarvagun Society Community Work" 
         class="w-full h-full object-cover opacity-20 filter brightness-75 scale-105"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#1E4334]/95 via-[#1E4334]/90 to-[#1E4334]"></div>
+      <div class="absolute inset-0 bg-linear-to-b from-primary-hover/95 via-primary-hover/90 to-primary-hover"></div>
     </div>
 
-    <div class="relative z-10 mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="relative z-10 mx-auto max-w-page px-4 lg:px-6">
       <div class="max-w-3xl mx-auto text-center space-y-6">
         <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white">
           <span class="w-2 h-2 rounded-full bg-secondary"></span>
@@ -62,7 +62,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Photo Showcase Gallery Slider -->
   <section class="py-12 bg-bg-muted border-b border-border" aria-label="Field Work Highlights">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-secondary">Ground Reality &amp; Impact</span>
@@ -79,7 +79,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Slide 1 -->
           <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
             <img src="/images/photo-gallery/gallery16.jpg" alt="Spread Smiles Distribution" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+            <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
               <span class="bg-secondary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Spread Smiles Initiative</span>
               <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">School Uniform &amp; Stationery Distribution</h3>
               <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Equipping children in government schools of rural Dehradun with essential learning kits.</p>
@@ -88,7 +88,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Slide 2 -->
           <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
             <img src="/images/photo-gallery/gallery1.jpg" alt="Students Home Kotma" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+            <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
               <span class="bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Kedarnath Valley Relief</span>
               <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">Student's Home Village Kotma</h3>
               <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Supporting children and families rebuilding after natural disasters in disaster-prone valleys.</p>
@@ -97,7 +97,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Slide 3 -->
           <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
             <img src="/images/photo-gallery/gallery20.jpg" alt="Tree Plantation Camp" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+            <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
               <span class="bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Environment &amp; Health</span>
               <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">Tree Plantation &amp; Free Eye Checkup Camps</h3>
               <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Fostering environmental care and healthcare outreach across rural Uttarakhand villages.</p>
@@ -120,7 +120,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- About & Vivekananda Inspiration Section -->
   <section class="reveal py-16 lg:py-24">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <!-- Quote Box -->
         <div class="lg:col-span-5 bg-primary-soft/60 border border-primary/20 p-8 rounded-2xl relative shadow-xs">
@@ -163,7 +163,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Core Initiatives Grid -->
   <section class="reveal py-16 lg:py-24 bg-bg-muted border-y border-border">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-xs font-bold uppercase tracking-wider text-secondary">Pillars of Action</span>
         <h2 class="text-3xl sm:text-4xl font-heading font-bold text-text mt-2">Key Areas of Focus</h2>
@@ -175,7 +175,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
           <div class="h-48 overflow-hidden relative">
             <img src="/images/photo-gallery/gallery14.jpg" alt="Rural School Objectives" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Mission</span>
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -196,7 +196,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
           <div class="h-48 overflow-hidden relative">
             <img src="/images/photo-gallery/gallery3.jpg" alt="Helping Hand Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             <span class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Support</span>
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -217,7 +217,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
           <div class="h-48 overflow-hidden relative">
             <img src="/images/photo-gallery/gallery8.jpg" alt="Volunteers Community" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             <span class="absolute top-4 left-4 bg-emerald-700 text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Volunteer</span>
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -239,8 +239,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Spotlight Initiative: Spread Smiles -->
   <section class="reveal py-16 lg:py-24">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
-      <div class="bg-[#1E4334] text-white rounded-3xl p-8 lg:p-12 shadow-xl overflow-hidden relative border border-primary/20">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
+      <div class="bg-primary-hover text-white rounded-3xl p-8 lg:p-12 shadow-xl overflow-hidden relative border border-primary/20">
         <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
           <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex items-center gap-2 bg-festive text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xs">
@@ -279,7 +279,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Impact Stat Bar -->
   <section class="reveal py-16 bg-bg-muted border-t border-border">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+    <div class="mx-auto max-w-page px-4 lg:px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="bg-bg-card border border-border p-6 rounded-2xl text-center shadow-xs">
           <div class="w-12 h-12 rounded-xl bg-primary-soft text-primary font-bold flex items-center justify-center mx-auto mb-3">
@@ -318,7 +318,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- CTA Section -->
   <section class="reveal py-20 lg:py-28">
-    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6 text-center">
+    <div class="mx-auto max-w-page px-4 lg:px-6 text-center">
       <div class="max-w-3xl mx-auto space-y-6">
         <span class="text-xs font-bold uppercase tracking-wider text-secondary">Join Hands With Us</span>
         <h2 class="text-3xl sm:text-5xl font-heading font-bold text-text">Be the Catalyst for Positive Change</h2>
