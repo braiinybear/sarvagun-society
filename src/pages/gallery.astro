@@ -47,19 +47,19 @@ const galleryItems = Array.from({ length: totalImages }, (_, i) => {
     <div class="mx-auto max-w-page px-4 lg:px-6">
       <!-- Category Filter Pills (Client-side interactive) -->
       <div class="flex flex-wrap justify-center gap-2 mb-12" id="gallery-filters">
-        <button data-filter="all" class="filter-btn active bg-primary text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xs transition-all cursor-pointer">
+        <button data-filter="all" class="filter-btn active bg-primary text-white border border-primary text-xs font-semibold px-4 py-2.5 rounded-full shadow-xs transition-all cursor-pointer hover:bg-primary-hover hover:text-white">
           All Photos (24)
         </button>
-        <button data-filter="Spread Smiles" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+        <button data-filter="Spread Smiles" class="filter-btn bg-bg-card border border-border text-text-muted text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/30">
           Spread Smiles
         </button>
-        <button data-filter="Kotma Relief" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+        <button data-filter="Kotma Relief" class="filter-btn bg-bg-card border border-border text-text-muted text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/30">
           Kotma Kedarnath Relief
         </button>
-        <button data-filter="Health & Environment" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+        <button data-filter="Health & Environment" class="filter-btn bg-bg-card border border-border text-text-muted text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/30">
           Health &amp; Environment
         </button>
-        <button data-filter="School & Education" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+        <button data-filter="School & Education" class="filter-btn bg-bg-card border border-border text-text-muted text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/30">
           School Infrastructure
         </button>
       </div>
@@ -185,11 +185,11 @@ const galleryItems = Array.from({ length: totalImages }, (_, i) => {
         const filter = (btn as HTMLElement).dataset.filter;
         
         filterBtns.forEach(b => {
-          b.classList.remove('bg-primary', 'text-white');
-          b.classList.add('bg-bg-card', 'border', 'border-border', 'text-text-muted');
+          b.classList.remove('active', 'bg-primary', 'text-white', 'border-primary', 'hover:bg-primary-hover');
+          b.classList.add('bg-bg-card', 'border-border', 'text-text-muted', 'hover:bg-primary-soft', 'hover:text-primary');
         });
-        btn.classList.remove('bg-bg-card', 'border', 'border-border', 'text-text-muted');
-        btn.classList.add('bg-primary', 'text-white');
+        btn.classList.remove('bg-bg-card', 'border-border', 'text-text-muted', 'hover:bg-primary-soft');
+        btn.classList.add('active', 'bg-primary', 'text-white', 'border-primary', 'hover:bg-primary-hover', 'hover:text-white');
 
         cards.forEach(card => {
           const cardCategory = (card as HTMLElement).dataset.category;
