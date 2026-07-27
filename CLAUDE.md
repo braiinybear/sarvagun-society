@@ -29,9 +29,9 @@
 
 ## Design System Tokens (`global.css`)
 
-- `--color-primary`: `#2C5E48` (Soft Sage Green)
-- `--color-primary-hover`: `#1E4334` (Deep Forest Sage)
-- `--color-primary-soft`: `#EBF4F0` (Gentle Soft Mint)
+- `--color-primary`: `#113F40` (Pine Teal Green)
+- `--color-primary-hover`: `#0B2C2D` (Deep Dark Pine Teal)
+- `--color-primary-soft`: `#E6F2F2` (Soft Mint Tint)
 - `--color-secondary`: `#E07A5F` (Warm Soft Terracotta)
 - `--color-festive`: `#E05252` (Soft Coral Red CTA)
 - `--color-bg`: `#FAFAFA` (Soft Snow White)
