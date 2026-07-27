@@ -9,13 +9,41 @@ import MobileNavLink from '../components/MobileNavLink.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title,
-  description = 'Sarvagun Society - Non Profit NGO in Dehradun, Uttarakhand',
+  description = 'Sarvagun Society is a registered non-profit NGO working for education, rural development, and community empowerment in Dehradun, Uttarakhand.',
+  image = '/images/photo-gallery/gallery16.jpg',
 } = Astro.props;
+
 const currentPath = Astro.url.pathname;
+const canonicalURL = new URL(currentPath, Astro.site || 'https://sarvagunsociety.org');
+const imageURL = new URL(image, Astro.site || 'https://sarvagunsociety.org');
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Sarvagun Society",
+  "url": "https://sarvagunsociety.org",
+  "logo": "https://sarvagunsociety.org/favicon.svg",
+  "image": imageURL.toString(),
+  "description": "Registered non-profit NGO in Dehradun, Uttarakhand working dedicatedly for rural education, environment, healthcare, and community empowerment since 2012.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Village Malsi, PO Sinola, Mussoorie Diversion",
+    "addressLocality": "Dehradun",
+    "addressRegion": "Uttarakhand",
+    "postalCode": "248009",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-8126298521",
+  "email": "mail@sarvagunsociety.org",
+  "foundingDate": "2012",
+  "areaServed": "Uttarakhand, India",
+  "knowsAbout": ["Rural Education", "School Infrastructure", "Disaster Relief", "Community Health", "Tree Plantation"]
+};
 ---
 
 <!DOCTYPE html>
@@ -24,11 +52,37 @@ const currentPath = Astro.url.pathname;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Search Engine Meta Tags -->
     <title>{title} | Sarvagun Society</title>
+    <meta name="title" content={`${title} | Sarvagun Society`} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sarvagun Society NGO" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | Sarvagun Society`} />
     <meta property="og:description" content={description} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | Sarvagun Society`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <!-- Geo & Local SEO -->
+    <meta name="geo.region" content="IN-UT" />
+    <meta name="geo.placename" content="Dehradun, Uttarakhand" />
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
     <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
