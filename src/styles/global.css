@@ -23,8 +23,10 @@
   --spacing-page: 1200px;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 @layer base {
