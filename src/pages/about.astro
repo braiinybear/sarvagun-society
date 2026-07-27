@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TeamCard from '../components/TeamCard.astro';
+---
+
+<BaseLayout title="About Us" description="Learn about Sarvagun Society — our mission, inspiration, and the work we do for communities in Uttarakhand.">
+  <section class="py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <h1 class="text-4xl lg:text-5xl font-heading font-bold mb-6">About Us</h1>
+      <div class="prose prose-lg max-w-none text-text-muted">
+        <p class="text-lg leading-relaxed">
+          Sarvagun Society is a registered non-profit NGO, which for the last five years has been working for the empowerment of people through socio-economic, environmental and cultural activities. The society has effectively worked in educating the masses and transforming people within their own contexts.
+        </p>
+        <p class="text-lg leading-relaxed">
+          The founders of The Sarvagun Society were highly inspired by the ideas of <strong>Swami Vivekananda</strong> and followed his footsteps in serving the community.
+        </p>
+        <blockquote class="border-l-4 border-primary pl-6 my-8 text-lg italic text-text">
+          "The gist of all worship is to be pure and to do good to others. He who sees God in the poor, in the weak, and in the diseased really worships God; and if he sees God only in the image, his worship is but preliminary."
+          <footer class="text-sm text-text-muted mt-2">— Swami Vivekananda</footer>
+        </blockquote>
+        <p class="text-lg leading-relaxed">
+          Members of The Sarvagun Society are working with zeal to serve the needy in their day to day work. The members collect money from their circle of friends and relatives and when a good amount of money gets collected, the society organizes a charitable program in needy schools in the local area.
+        </p>
+        <p class="text-lg leading-relaxed">
+          The Sarvagun Society is also supporting and sponsoring two widow ladies who have no financial support after the death of their husbands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-16 lg:py-24 bg-bg-muted">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold mb-4 text-center">Our Team</h2>
+      <p class="text-text-muted text-center max-w-2xl mx-auto mb-12">Dedicated individuals working together to serve the community.</p>
+
+      <h3 class="text-xl font-heading font-bold mb-6 text-primary">Board Members</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <TeamCard name="Ankit Sharma" role="President" />
+        <TeamCard name="Rajeev Gurung" role="Vice President" />
+        <TeamCard name="Yaten Singh Negi" role="Secretary" />
+        <TeamCard name="Amit Kotal" role="Treasurer" />
+      </div>
+
+      <h3 class="text-xl font-heading font-bold mb-6 text-primary">Founder Members</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {['Ankit Sharma', 'Shobhit Sharma', 'Rahul Rawat', 'Harshit Sharma', 'Lalit Singh Pundir', 'Ankur Rana', 'Sarika Thapa', 'Yaten Singh Negi'].map(name => (
+          <div class="bg-bg-card rounded-lg border border-border px-4 py-3 text-sm text-text">{name}</div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-heading font-bold mb-6 text-primary">Associate Members</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        {['Sudheer Rawat', 'Meenal Kuksal', 'Dinesh Menaria'].map(name => (
+          <div class="bg-bg-card rounded-lg border border-border px-4 py-3 text-sm text-text">{name}</div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-heading font-bold mb-6 text-primary">General Members</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {['Rajat Rana', 'Divesh Rustogi', 'Gourav Uniyal', 'Sankalp Saxena', 'Balbinder Chauhan', 'Akarsh Aggarwal', 'Nikita Kuksal', 'Nitin Rawat', 'Amit Rawat', 'Arpit Sharma', 'Shubham Tripathi', 'Ankit Goyal', 'Lalit Mohan Bhatt', 'Dharmesh Narula', 'Sudeep Gupta'].map(name => (
+          <div class="bg-bg-card rounded-lg border border-border px-4 py-3 text-sm text-text">{name}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

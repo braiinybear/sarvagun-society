@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const type = Astro.url.searchParams.get('type') || 'contact';
+const isError = Astro.url.searchParams.get('error') === '1';
+const headlines = {
+  contact: 'Message Sent Successfully',
+  membership: 'Membership Application Submitted',
+};
+---
+
+<BaseLayout title={isError ? 'Submission Error' : 'Thank You'}>
+  <section class="py-24 text-center">
+    <div class="mx-auto max-w-lg px-4">
+      {isError ? (
+        <>
+          <div class="w-16 h-16 rounded-full bg-error/10 flex items-center justify-center mx-auto mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4333F" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <h1 class="text-3xl font-heading font-bold mb-4">Something Went Wrong</h1>
+          <p class="text-text-muted mb-6">Your submission could not be processed. Please try again or email us directly.</p>
+          <a href="/contact" class="inline-flex bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-hover transition-colors">Try Again</a>
+        </>
+      ) : (
+        <>
+          <div class="w-16 h-16 rounded-full bg-primary-soft flex items-center justify-center mx-auto mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h1 class="text-3xl font-heading font-bold mb-4">{headlines[type] || 'Thank You'}</h1>
+          <p class="text-text-muted mb-2">We have received your submission.</p>
+          <p class="text-text-muted mb-8">We will review it and get back to you shortly.</p>
+          <a href="/" class="inline-flex bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-hover transition-colors">Back to Home</a>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>

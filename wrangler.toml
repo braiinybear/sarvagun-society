@@ -1,0 +1,11 @@
+# Cloudflare Pages configuration
+# Deploy: npx wrangler pages deploy dist --branch=main
+
+name = "sarvagun-society"
+
+compatibility_date = "2026-07-22"
+
+pages_build_output_dir = "dist"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }

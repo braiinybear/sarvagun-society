@@ -1,0 +1,306 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import NavLink from '../components/NavLink.astro';
+import DropdownNav from '../components/DropdownNav.astro';
+import DropdownLink from '../components/DropdownLink.astro';
+import MobileNavLink from '../components/MobileNavLink.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Sarvagun Society - Non Profit NGO in Dehradun, Uttarakhand',
+} = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Sarvagun Society</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={`${title} | Sarvagun Society`} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <ClientRouter />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col font-body bg-bg text-text selection:bg-primary-soft selection:text-primary-hover">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-[#1E4334] text-white/90 text-xs py-2 px-4 text-center font-medium tracking-wide">
+      <span class="inline-flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        Sarvagun Society • Registered Non-Profit NGO Empowering Communities in Uttarakhand
+      </span>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-bg-card/90 backdrop-blur-md border-b border-border shadow-xs transition-all">
+      <nav class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6 h-20 flex items-center justify-between" aria-label="Main navigation">
+        <a href="/" class="flex items-center gap-3 text-xl font-heading font-bold text-primary no-underline group">
+          <div class="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center text-primary group-hover:scale-105 transition-transform shadow-xs">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="leading-none text-primary font-extrabold tracking-tight">Sarvagun Society</span>
+            <span class="text-[10px] font-body uppercase tracking-wider text-text-muted font-semibold mt-1">Non-Profit NGO • Dehradun</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-1 xl:gap-3">
+          <NavLink href="/" current={currentPath}>Home</NavLink>
+
+          <DropdownNav label="About">
+            <DropdownLink href="/about">About Us</DropdownLink>
+            <DropdownLink href="/objectives">Objectives</DropdownLink>
+          </DropdownNav>
+
+          <DropdownNav label="Programs">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1 pt-1">Projects</p>
+            <DropdownLink href="/projects/spread-smiles">Spread Smiles</DropdownLink>
+            <DropdownLink href="/projects/students-home-kotma">Student's Home Kotma</DropdownLink>
+            <DropdownLink href="/projects/sarvagun-siksha-abhiyan">Sarvagun Siksha Abhiyan</DropdownLink>
+            <DropdownLink href="/projects/tree-plantation-eye-checkup">Tree Plantation &amp; Eye Checkup</DropdownLink>
+            <DropdownLink href="/projects/school-development">School Development</DropdownLink>
+            <DropdownLink href="/projects/rural-development">Rural Development</DropdownLink>
+            <DropdownLink href="/projects/future-plans">Future Plans</DropdownLink>
+            <div class="border-t border-border my-1 mx-3"></div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1 pt-1">Activities</p>
+            <DropdownLink href="/activities/doon-challengers-club">Doon Challengers Club</DropdownLink>
+            <DropdownLink href="/activities/personality-development-workshop">PD Workshop</DropdownLink>
+          </DropdownNav>
+
+          <DropdownNav label="Get Involved">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1 pt-1">Members</p>
+            <DropdownLink href="/members/current-members">Current Members</DropdownLink>
+            <DropdownLink href="/members/join-us">Join Us</DropdownLink>
+            <DropdownLink href="/members/volunteers">Volunteers</DropdownLink>
+            <DropdownLink href="/members/rules-of-membership">Rules of Membership</DropdownLink>
+            <div class="border-t border-border my-1 mx-3"></div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1 pt-1">Support</p>
+            <DropdownLink href="/join-hand/helping-hand">Helping Hand</DropdownLink>
+            <DropdownLink href="/donate">Donation</DropdownLink>
+          </DropdownNav>
+
+          <NavLink href="/gallery" current={currentPath}>Gallery</NavLink>
+          <NavLink href="/annual-report" current={currentPath}>Report</NavLink>
+          <NavLink href="/contact" current={currentPath}>Contact</NavLink>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="/donate" class="hidden sm:inline-flex items-center gap-2 bg-festive text-white text-sm font-semibold tracking-wide px-5 py-2.5 rounded-full hover:bg-festive/90 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>Donate Now</span>
+          </a>
+          <!-- Mobile menu toggle -->
+          <button id="menu-toggle" class="lg:hidden p-2 text-text hover:text-primary transition-colors" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            <svg id="menu-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Backdrop -->
+      <div id="menu-backdrop" class="lg:hidden fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden fixed top-20 right-0 w-80 max-w-[85vw] h-[calc(100vh-5rem)] bg-bg-card border-l border-border shadow-xl translate-x-full transition-transform duration-300 ease-out z-50">
+        <div class="px-5 py-6 space-y-1 h-full overflow-y-auto">
+          <MobileNavLink href="/">Home</MobileNavLink>
+          <MobileNavLink href="/about">About Us</MobileNavLink>
+          <MobileNavLink href="/objectives">Objectives</MobileNavLink>
+
+          <div class="border-t border-border my-3 pt-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Projects</p>
+            <MobileNavLink href="/projects/spread-smiles">Spread Smiles</MobileNavLink>
+            <MobileNavLink href="/projects/students-home-kotma">Student's Home Kotma</MobileNavLink>
+            <MobileNavLink href="/projects/sarvagun-siksha-abhiyan">Sarvagun Siksha Abhiyan</MobileNavLink>
+            <MobileNavLink href="/projects/tree-plantation-eye-checkup">Tree Plantation &amp; Eye Checkup</MobileNavLink>
+            <MobileNavLink href="/projects/school-development">School Development</MobileNavLink>
+            <MobileNavLink href="/projects/rural-development">Rural Development</MobileNavLink>
+            <MobileNavLink href="/projects/future-plans">Future Plans</MobileNavLink>
+          </div>
+
+          <div class="border-t border-border my-3 pt-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Members</p>
+            <MobileNavLink href="/members/current-members">Current Members</MobileNavLink>
+            <MobileNavLink href="/members/join-us">Join Us</MobileNavLink>
+            <MobileNavLink href="/members/volunteers">Volunteers</MobileNavLink>
+            <MobileNavLink href="/members/rules-of-membership">Rules of Membership</MobileNavLink>
+          </div>
+
+          <div class="border-t border-border my-3 pt-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 pb-1">Join Hand</p>
+            <MobileNavLink href="/join-hand/helping-hand">Helping Hand</MobileNavLink>
+            <MobileNavLink href="/donate">Donation</MobileNavLink>
+          </div>
+
+          <MobileNavLink href="/gallery">Gallery</MobileNavLink>
+          <MobileNavLink href="/annual-report">Annual Report</MobileNavLink>
+          <MobileNavLink href="/activities/doon-challengers-club">Doon Challengers Club</MobileNavLink>
+          <MobileNavLink href="/contact">Contact</MobileNavLink>
+          <div class="pt-4">
+            <a href="/donate" class="flex items-center justify-center gap-2 bg-festive text-white font-semibold tracking-wide px-5 py-3.5 rounded-xl shadow-md">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>Donate Now</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-hover text-white pt-16 pb-12 border-t border-primary/20">
+      <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 text-xl font-heading font-bold text-white">
+              <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span>Sarvagun Society</span>
+            </div>
+            <p class="text-white/75 text-sm leading-relaxed">
+              A registered non-profit NGO working for the empowerment of people through socio-economic, environmental and cultural activities in Uttarakhand.
+            </p>
+            <div class="pt-2 flex items-center gap-3">
+              <a href="mailto:mail@sarvagunsociety.org" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/80 hover:bg-secondary hover:text-white transition-all" aria-label="Email Us">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+              <a href="tel:+918126298521" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/80 hover:bg-secondary hover:text-white transition-all" aria-label="Call Us">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-heading text-base font-semibold text-white tracking-wide mb-4">Quick Links</h4>
+            <ul class="space-y-2.5 text-sm text-white/75">
+              <li><a href="/about" class="hover:text-secondary transition-colors">About Us</a></li>
+              <li><a href="/objectives" class="hover:text-secondary transition-colors">Objectives</a></li>
+              <li><a href="/gallery" class="hover:text-secondary transition-colors">Photo Gallery</a></li>
+              <li><a href="/annual-report" class="hover:text-secondary transition-colors">Annual Report</a></li>
+              <li><a href="/contact" class="hover:text-secondary transition-colors">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading text-base font-semibold text-white tracking-wide mb-4">Get Involved</h4>
+            <ul class="space-y-2.5 text-sm text-white/75">
+              <li><a href="/donate" class="hover:text-secondary transition-colors">Make a Donation</a></li>
+              <li><a href="/members/volunteers" class="hover:text-secondary transition-colors">Become a Volunteer</a></li>
+              <li><a href="/members/join-us" class="hover:text-secondary transition-colors">Join as Member</a></li>
+              <li><a href="/join-hand/helping-hand" class="hover:text-secondary transition-colors">Helping Hand Program</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading text-base font-semibold text-white tracking-wide mb-4">Contact Office</h4>
+            <ul class="space-y-3 text-sm text-white/75">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-secondary mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Village Malsi, PO Sinola, Mussoorie Diversion, Dehradun, Uttarakhand</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:+918126298521" class="hover:text-white transition-colors">+91-8126298521</a>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:mail@sarvagunsociety.org" class="hover:text-white transition-colors">mail@sarvagunsociety.org</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p>&copy; {new Date().getFullYear()} Sarvagun Society. Registered Non-Profit NGO in Uttarakhand.</p>
+          <p class="text-white/40">Empowering education, environment &amp; rural lives.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function initMenu() {
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('menu-backdrop');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        if (!toggle || !menu || !backdrop) return;
+
+        const close = () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.add('translate-x-full');
+          backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          backdrop.classList.add('opacity-0', 'pointer-events-none');
+          document.body.classList.remove('overflow-hidden');
+          iconOpen?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+        };
+
+        // Reset on every page load (menu should be closed initially)
+        close();
+
+        const open = () => {
+          toggle.setAttribute('aria-expanded', 'true');
+          menu.classList.remove('translate-x-full');
+          backdrop.classList.remove('opacity-0', 'pointer-events-none');
+          backdrop.classList.add('opacity-100', 'pointer-events-auto');
+          document.body.classList.add('overflow-hidden');
+          iconOpen?.classList.add('hidden');
+          iconClose?.classList.remove('hidden');
+        };
+
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          expanded ? close() : open();
+        });
+
+        backdrop.addEventListener('click', close);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') close();
+        });
+      }
+
+      function initReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              requestAnimationFrame(() => {
+                entry.target.classList.add('reveal-visible');
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      }
+
+      // Run on initial load and after View Transitions navigation
+      initMenu();
+      initReveal();
+      document.addEventListener('astro:page-load', () => {
+        initMenu();
+        initReveal();
+      });
+    </script>
+  </body>
+</html>

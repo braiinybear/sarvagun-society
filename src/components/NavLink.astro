@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  current: string;
+}
+
+const { href, current } = Astro.props;
+const isActive = current === href || (href !== '/' && current.startsWith(href));
+---
+
+<a
+  href={href}
+  class={`relative text-sm font-medium py-1 transition-colors no-underline ${
+    isActive ? 'text-primary' : 'text-text hover:text-primary'
+  }`}
+>
+  <slot />
+  <span class="absolute -bottom-0.5 left-0 w-full h-0.5 bg-primary transition-transform duration-200 ease-out" style={`transform: scaleX(${isActive ? 1 : 0})`}></span>
+</a>

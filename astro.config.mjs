@@ -1,5 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  server: { port: 4321 },
+  redirects: {
+    '/charity-work-and-program-in-malsi-school': '/projects/school-development',
+    '/school-development-and-rural-development': '/projects/school-development',
+  },
+});

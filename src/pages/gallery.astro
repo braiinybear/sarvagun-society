@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const totalImages = 24;
+
+// Add descriptive metadata for gallery items to make the gallery engaging
+const galleryItems = Array.from({ length: totalImages }, (_, i) => {
+  const id = i + 1;
+  let category = 'School & Education';
+  let title = `Community Activity #${id}`;
+
+  if ([1, 2, 4, 7].includes(id)) {
+    category = 'Kotma Relief';
+    title = `Kedarnath Valley Support #${id}`;
+  } else if ([3, 5, 9, 14, 16].includes(id)) {
+    category = 'Spread Smiles';
+    title = `Diwali Uniform & Bags Distribution`;
+  } else if ([8, 11, 15, 20].includes(id)) {
+    category = 'Health & Environment';
+    title = `Eye Checkup & Tree Planting`;
+  } else if ([12, 17, 18, 22].includes(id)) {
+    category = 'Youth & Sports';
+    title = `Doon Challengers Club & Workshop`;
+  }
+
+  return { id, category, title };
+});
+---
+
+<BaseLayout title="Photo Gallery" description="Photo gallery showcasing community programs, school development, and relief activities of Sarvagun Society across Uttarakhand.">
+  <!-- Header Section -->
+  <section class="bg-primary-hover text-white py-16 lg:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-hover via-primary/95 to-primary-hover/90 opacity-90"></div>
+    <div class="relative z-10 mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-secondary mb-4">
+        <span>Ground Impact • Uttarakhand</span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-heading font-extrabold text-white mb-4">Photo Gallery</h1>
+      <p class="text-white/85 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        A glimpse into our educational distributions, school infrastructure projects, medical camps, and community initiatives across rural Uttarakhand.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-16 bg-bg">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <!-- Category Filter Pills (Client-side interactive) -->
+      <div class="flex flex-wrap justify-center gap-2 mb-12" id="gallery-filters">
+        <button data-filter="all" class="filter-btn active bg-primary text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xs transition-all cursor-pointer">
+          All Photos (24)
+        </button>
+        <button data-filter="Spread Smiles" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+          Spread Smiles
+        </button>
+        <button data-filter="Kotma Relief" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+          Kotma Kedarnath Relief
+        </button>
+        <button data-filter="Health & Environment" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+          Health &amp; Environment
+        </button>
+        <button data-filter="School & Education" class="filter-btn bg-bg-card border border-border text-text-muted hover:text-primary text-xs font-semibold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+          School Infrastructure
+        </button>
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gallery-grid">
+        {galleryItems.map(item => (
+          <div
+            data-category={item.category}
+            data-gallery-id={item.id}
+            data-title={item.title}
+            class="gallery-card group relative aspect-4/3 sm:aspect-square rounded-2xl overflow-hidden bg-bg-card border border-border shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+            role="button"
+            tabindex="0"
+            aria-label={`View photo ${item.id}: ${item.title}`}
+          >
+            <img
+              src={`/images/photo-gallery/gallery${item.id}.thumb.jpg`}
+              alt={item.title}
+              class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+              loading="lazy"
+            />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
+              <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full w-fit mb-1 shadow-sm">
+                {item.category}
+              </span>
+              <p class="font-heading font-bold text-sm leading-snug drop-shadow-md">{item.title}</p>
+              <div class="mt-2 flex items-center justify-between text-xs text-white/90 border-t border-white/20 pt-2 font-medium">
+                <span>Photo #{item.id}</span>
+                <span class="inline-flex items-center gap-1 font-bold text-secondary">
+                  <span>Enlarge</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                </span>
+              </div>
+            </div>
+            <!-- Persistent Badge (Top Right) -->
+            <span class="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-white/10 group-hover:opacity-0 transition-opacity">
+              #{item.id}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Photo gallery lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&lsaquo;</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next photo">&rsaquo;</button>
+
+    <div class="flex flex-col items-center max-w-4xl px-4">
+      <img class="lightbox-img shadow-2xl" id="lightbox-img" src="" alt="" />
+      <div class="mt-4 text-center text-white">
+        <h3 id="lightbox-title" class="font-heading text-lg font-bold text-white"></h3>
+        <p id="lightbox-counter" class="text-xs text-white/70 mt-1"></p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  function initGallery() {
+    const total = 24;
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img') as HTMLImageElement;
+    const titleEl = document.getElementById('lightbox-title');
+    const counter = document.getElementById('lightbox-counter');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const cards = document.querySelectorAll('.gallery-card');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    if (!lightbox || !img || !closeBtn || !prevBtn || !nextBtn) return;
+
+    let current = 1;
+
+    function show(idx: number, title?: string) {
+      if (idx < 1) idx = total;
+      if (idx > total) idx = 1;
+      current = idx;
+      img.src = `/images/photo-gallery/gallery${idx}.jpg`;
+      img.alt = title || `Sarvagun Society photo ${idx}`;
+      if (titleEl) titleEl.textContent = title || `Gallery Photo #${idx}`;
+      if (counter) counter.textContent = `Photo ${idx} of ${total} • Press Esc to close`;
+      lightbox?.classList.add('active');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function hide() {
+      lightbox?.classList.remove('active');
+      document.body.classList.remove('lightbox-open');
+      img.src = '';
+    }
+
+    function prev() {
+      show(current - 1);
+    }
+
+    function next() {
+      show(current + 1);
+    }
+
+    cards.forEach(card => {
+      const el = card as HTMLElement;
+      const id = parseInt(el.dataset.galleryId || '1', 10);
+      const title = el.dataset.title || '';
+
+      const handleClick = () => show(id, title);
+      el.addEventListener('click', handleClick);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      });
+    });
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = (btn as HTMLElement).dataset.filter;
+        
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('bg-bg-card', 'border', 'border-border', 'text-text-muted');
+        });
+        btn.classList.remove('bg-bg-card', 'border', 'border-border', 'text-text-muted');
+        btn.classList.add('bg-primary', 'text-white');
+
+        cards.forEach(card => {
+          const cardCategory = (card as HTMLElement).dataset.category;
+          if (filter === 'all' || cardCategory === filter) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+
+    closeBtn.addEventListener('click', hide);
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') hide();
+      if (e.key === 'ArrowLeft') { prev(); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) hide();
+    });
+  }
+
+  initGallery();
+  document.addEventListener('astro:page-load', initGallery);
+</script>

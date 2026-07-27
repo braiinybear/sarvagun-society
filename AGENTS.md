@@ -1,22 +1,52 @@
-## Development
+# Sarvagun Society NGO — Project Guidelines & Architecture
 
-When starting the dev server, use background mode:
+## Development & Commands
 
-```
-astro dev --background
-```
+- **Start Dev Server (Background)**:
+  ```bash
+  npx astro dev --background
+  ```
+  Manage dev server: `npx astro dev status`, `npx astro dev stop`, `npx astro dev logs`.
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+- **Production Build**:
+  ```bash
+  npm run build
+  ```
+  *(Outputs static site assets to `dist/` directory)*.
 
-## Documentation
+- **Deploy to Cloudflare Pages**:
+  ```bash
+  npx wrangler pages deploy dist --branch=main
+  ```
 
-Full documentation: https://docs.astro.build
+## Tech Stack & Architecture
 
-Consult these guides before working on related tasks:
+- **Framework**: Astro v7 (Static output with `ClientRouter` View Transitions)
+- **Styling**: Tailwind v4 with `@theme` tokens in `src/styles/global.css`
+- **Typography**: Google Fonts (`Plus Jakarta Sans` body & heading font)
+- **Serverless Form Handling**: Cloudflare Pages Function at `functions/submit-form.js` using Resend API for transactional email notifications
+- **Deployment Target**: Cloudflare Pages (`wrangler.toml` configured)
 
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+## Design System Tokens (`global.css`)
+
+- `--color-primary`: `#2C5E48` (Soft Sage Green)
+- `--color-primary-hover`: `#1E4334` (Deep Forest Sage)
+- `--color-primary-soft`: `#EBF4F0` (Gentle Soft Mint)
+- `--color-secondary`: `#E07A5F` (Warm Soft Terracotta)
+- `--color-festive`: `#E05252` (Soft Coral Red CTA)
+- `--color-bg`: `#FAFAFA` (Soft Snow White)
+- `--color-text`: `#1C1917` (Dark Warm Stone)
+
+## Environment Variables (`.env.example`)
+
+Set these in Cloudflare Pages Dashboard under **Settings → Environment Variables**:
+- `EMAIL_TO`: Recipient email for form submissions (`mail@sarvagunsociety.org`)
+- `RESEND_API_KEY`: Resend API key for sending transactional emails
+- `FROM_DOMAIN`: Verified domain name (`sarvagunsociety.org`)
+
+## Documentation & Reference
+
+- [Astro Routing Guide](https://docs.astro.build/en/guides/routing/)
+- [Astro Components Guide](https://docs.astro.build/en/basics/astro-components/)
+- [Astro Styling & Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Cloudflare Pages Functions](https://developers.cloudflare.com/pages/platform/functions/)

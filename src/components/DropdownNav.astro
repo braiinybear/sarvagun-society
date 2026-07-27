@@ -1,0 +1,17 @@
+---
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="relative group">
+  <button class="flex items-center gap-1 text-sm font-medium text-text hover:text-primary transition-colors py-2" aria-expanded="false">
+    {label}
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="mt-0.5"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+  </button>
+  <div class="absolute top-full left-0 mt-1 w-56 bg-bg-card rounded shadow-lg border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+    <slot />
+  </div>
+</div>

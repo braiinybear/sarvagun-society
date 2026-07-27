@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us" description="Get in touch with Sarvagun Society. We're based in Dehradun, Uttarakhand.">
+  <section class="py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <h1 class="text-4xl lg:text-5xl font-heading font-bold mb-8">Contact Us</h1>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <form class="space-y-5" action="/submit-form" method="POST">
+            <input type="hidden" name="_form" value="contact" />
+            <div>
+              <label for="name" class="block text-sm font-medium text-text mb-1">Name</label>
+              <input type="text" id="name" name="name" required class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all" placeholder="Your full name" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-text mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all" placeholder="your@email.com" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-text mb-1">Phone</label>
+              <input type="tel" id="phone" name="phone" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all" placeholder="+91-xxxxxxxxxx" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-text mb-1">Message</label>
+              <textarea id="message" name="message" rows="5" required class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all resize-y" placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-hover transition-colors text-sm">
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div>
+          <div class="bg-bg-card rounded-lg border border-border p-8 space-y-6">
+            <div>
+              <h3 class="font-heading font-bold text-lg mb-3">Our Address</h3>
+              <p class="text-text-muted text-sm leading-relaxed">
+                Sarvagun Society<br />
+                Village Malsi, PO Sinola<br />
+                Mussoorie Diversion, Dehradun<br />
+                Uttarakhand, India
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg mb-3">Phone</h3>
+              <p class="text-text-muted text-sm">
+                <a href="tel:+918126298521" class="text-primary hover:text-primary-hover">+91-8126298521</a><br />
+                <span class="text-text-muted">Landline: 0135-2190606</span>
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg mb-3">Email</h3>
+              <p class="text-text-muted text-sm">
+                <a href="mailto:mail@sarvagunsociety.org" class="text-primary hover:text-primary-hover">mail@sarvagunsociety.org</a><br />
+                <a href="mailto:sarvagun@live.com" class="text-primary hover:text-primary-hover">sarvagun@live.com</a>
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg mb-3">Bank Details</h3>
+              <div class="text-text-muted text-sm space-y-1">
+                <p><strong class="text-text">Account Name:</strong> Sarvagun Society</p>
+                <p><strong class="text-text">Bank:</strong> Indian Overseas Bank</p>
+                <p><strong class="text-text">A/c No.:</strong> 321301000001156</p>
+                <p><strong class="text-text">IFSC Code:</strong> IOBA0003213</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

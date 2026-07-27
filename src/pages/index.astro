@@ -1,17 +1,424 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home" description="Sarvagun Society is a registered non-profit NGO working for education, rural development, and community empowerment in Dehradun, Uttarakhand.">
+  <!-- Hero Section -->
+  <section class="relative bg-[#1E4334] text-white py-20 lg:py-32 overflow-hidden">
+    <!-- Background Image with Soft Dark Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/photo-gallery/gallery16.jpg" 
+        alt="Sarvagun Society Community Work" 
+        class="w-full h-full object-cover opacity-20 filter brightness-75 scale-105"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1E4334]/95 via-[#1E4334]/90 to-[#1E4334]"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white">
+          <span class="w-2 h-2 rounded-full bg-secondary"></span>
+          <span>Uttarakhand Community Empowerment</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight drop-shadow-md">
+          Transforming Rural Lives Through Education &amp; Care
+        </h1>
+
+        <p class="text-lg sm:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-normal">
+          Inspired by Swami Vivekananda, Sarvagun Society has been serving underserved children and rural communities across Uttarakhand since 2012.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/donate" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-festive hover:bg-festive/90 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>Sponsor a Child</span>
+          </a>
+          <a href="/about" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-sm font-semibold text-base px-8 py-4 rounded-xl transition-all">
+            <span>Our Vision &amp; Story</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-8 grid grid-cols-2 md:grid-cols-3 gap-4 border-t border-white/15 text-xs font-semibold text-white/95 max-w-xl mx-auto">
+          <div class="flex items-center justify-center gap-2 bg-white/10 py-2.5 px-3 rounded-xl border border-white/15 backdrop-blur-xs">
+            <svg class="w-4 h-4 text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Registered NGO</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 bg-white/10 py-2.5 px-3 rounded-xl border border-white/15 backdrop-blur-xs">
+            <svg class="w-4 h-4 text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>10+ Years Active</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 col-span-2 md:col-span-1 bg-white/10 py-2.5 px-3 rounded-xl border border-white/15 backdrop-blur-xs">
+            <svg class="w-4 h-4 text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>1000+ Students</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Showcase Gallery Slider -->
+  <section class="py-12 bg-bg-muted border-b border-border" aria-label="Field Work Highlights">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-secondary">Ground Reality &amp; Impact</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-text mt-1">Our Programs in Action</h2>
+        </div>
+        <a href="/gallery" class="inline-flex items-center gap-1.5 text-primary font-bold text-sm hover:underline mt-2 md:mt-0">
+          <span>View Full Photo Gallery</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div id="photo-slider" class="relative overflow-hidden rounded-2xl shadow-sm bg-black" role="region" aria-label="Photo carousel">
+        <div class="flex transition-transform duration-500 ease-out" id="slider-track">
+          <!-- Slide 1 -->
+          <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
+            <img src="/images/photo-gallery/gallery16.jpg" alt="Spread Smiles Distribution" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+              <span class="bg-secondary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Spread Smiles Initiative</span>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">School Uniform &amp; Stationery Distribution</h3>
+              <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Equipping children in government schools of rural Dehradun with essential learning kits.</p>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
+            <img src="/images/photo-gallery/gallery1.jpg" alt="Students Home Kotma" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+              <span class="bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Kedarnath Valley Relief</span>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">Student's Home Village Kotma</h3>
+              <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Supporting children and families rebuilding after natural disasters in disaster-prone valleys.</p>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="w-full shrink-0 relative group min-h-[340px] sm:min-h-[420px]">
+            <img src="/images/photo-gallery/gallery20.jpg" alt="Tree Plantation Camp" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+              <span class="bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-xs">Environment &amp; Health</span>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-white drop-shadow-md">Tree Plantation &amp; Free Eye Checkup Camps</h3>
+              <p class="text-white/95 text-sm max-w-2xl mt-1 font-normal">Fostering environmental care and healthcare outreach across rural Uttarakhand villages.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+          <button id="slider-prev" class="w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition-colors" aria-label="Previous Slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button id="slider-next" class="w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition-colors" aria-label="Next Slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Vivekananda Inspiration Section -->
+  <section class="reveal py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Quote Box -->
+        <div class="lg:col-span-5 bg-primary-soft/60 border border-primary/20 p-8 rounded-2xl relative shadow-xs">
+          <div class="text-primary text-5xl font-heading font-bold leading-none mb-4">“</div>
+          <blockquote class="text-primary-hover font-heading text-xl font-bold italic leading-relaxed mb-6">
+            They alone live, who live for others, the rest are more dead than alive.
+          </blockquote>
+          <div class="flex items-center gap-4 pt-4 border-t border-primary/20">
+            <div class="w-12 h-12 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center text-lg shadow-xs">SV</div>
+            <div>
+              <p class="font-heading font-bold text-primary text-base">Swami Vivekananda</p>
+              <p class="text-xs text-text-muted font-semibold">Inspiration Behind Sarvagun Society</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-wider text-secondary">Our Foundation &amp; Ethos</span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-text">Serving Communities Within Their Own Contexts</h2>
+          <p class="text-text text-base leading-relaxed font-normal">
+            Sarvagun Society is a registered non-profit NGO based in Dehradun. For over a decade, we have been working dedicatedly toward the holistic empowerment of people through socio-economic, educational, environmental, and cultural programs.
+          </p>
+          <p class="text-text-muted text-base leading-relaxed font-normal">
+            From improving rural government school infrastructure to sponsoring deserving students with uniforms and books, our volunteers work directly on the ground to bring dignity, hope, and sustainable development to rural Uttarakhand.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="/about" class="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3.5 rounded-xl hover:bg-primary-hover transition-colors shadow-sm">
+              <span>Read Full Story</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/objectives" class="inline-flex items-center gap-2 bg-bg-muted text-text font-bold px-6 py-3.5 rounded-xl hover:bg-border border border-border transition-colors">
+              <span>Explore Objectives</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Initiatives Grid -->
+  <section class="reveal py-16 lg:py-24 bg-bg-muted border-y border-border">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-secondary">Pillars of Action</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-text mt-2">Key Areas of Focus</h2>
+        <p class="text-text-muted text-base mt-3 font-normal">Combining educational support, community hand-holding, and active volunteer participation.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1: Objectives -->
+        <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="/images/photo-gallery/gallery14.jpg" alt="Rural School Objectives" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Mission</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-heading font-bold text-text group-hover:text-primary transition-colors">Rural Objectives</h3>
+              <p class="text-text-muted text-sm leading-relaxed mt-2 font-normal">
+                Focused on infrastructure enhancement in government schools, environmental awareness, and rural community development in Dehradun.
+              </p>
+            </div>
+            <a href="/objectives" class="inline-flex items-center gap-1.5 text-primary font-bold text-sm group-hover:gap-2 transition-all">
+              <span>Learn Objectives</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Helping Hand -->
+        <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="/images/photo-gallery/gallery3.jpg" alt="Helping Hand Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Support</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-heading font-bold text-text group-hover:text-primary transition-colors">Helping Hand</h3>
+              <p class="text-text-muted text-sm leading-relaxed mt-2 font-normal">
+                We believe financial support is just one pillar. Personal care, skill sharing, and community support create true lasting empowerment.
+              </p>
+            </div>
+            <a href="/join-hand/helping-hand" class="inline-flex items-center gap-1.5 text-primary font-bold text-sm group-hover:gap-2 transition-all">
+              <span>Join Program</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Volunteers -->
+        <div class="bg-bg-card rounded-2xl border border-border overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="/images/photo-gallery/gallery8.jpg" alt="Volunteers Community" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-emerald-700 text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-xs">Volunteer</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-heading font-bold text-text group-hover:text-primary transition-colors">Volunteers Community</h3>
+              <p class="text-text-muted text-sm leading-relaxed mt-2 font-normal">
+                Contributions of time, talent, and energy are invaluable. Join our team of passionate volunteers organizing camps and teaching activities.
+              </p>
+            </div>
+            <a href="/members/volunteers" class="inline-flex items-center gap-1.5 text-primary font-bold text-sm group-hover:gap-2 transition-all">
+              <span>Become a Volunteer</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spotlight Initiative: Spread Smiles -->
+  <section class="reveal py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="bg-[#1E4334] text-white rounded-3xl p-8 lg:p-12 shadow-xl overflow-hidden relative border border-primary/20">
+        <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 bg-festive text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xs">
+              <span>Diwali Campaign • Spread Smiles</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white leading-tight drop-shadow-md">
+              Sponsoring 250+ Students in Rural Uttarakhand Schools
+            </h2>
+            <p class="text-white/95 text-base leading-relaxed font-normal">
+              Every Diwali, Sarvagun Society leads the <strong>"Spread Smiles"</strong> initiative to provide uniforms, notebooks, school bags, and learning stationeries to young students in government schools across rural Dehradun and surrounding districts.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="/projects/spread-smiles" class="inline-flex items-center gap-2 bg-festive hover:bg-festive/90 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                <span>Support Spread Smiles</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </a>
+              <a href="/projects/students-home-kotma" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/30 font-semibold px-6 py-3.5 rounded-xl backdrop-blur-sm transition-all">
+                <span>View Kotma Relief Work</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
+              <img src="/images/photo-gallery/gallery2.jpg" alt="Spread Smiles Children" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md p-4 rounded-xl text-white text-xs border border-white/10">
+                <p class="font-bold text-sm text-secondary">250+ Children Sponsored</p>
+                <p class="text-white/95 mt-0.5 font-normal">Creating smiles &amp; educational opportunities in rural government schools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Stat Bar -->
+  <section class="reveal py-16 bg-bg-muted border-t border-border">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-bg-card border border-border p-6 rounded-2xl text-center shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-primary-soft text-primary font-bold flex items-center justify-center mx-auto mb-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <p class="text-4xl font-heading font-extrabold text-primary"><span class="counter" data-target="10">0</span>+</p>
+          <p class="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1">Years Active</p>
+        </div>
+
+        <div class="bg-bg-card border border-border p-6 rounded-2xl text-center shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-primary-soft text-primary font-bold flex items-center justify-center mx-auto mb-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <p class="text-4xl font-heading font-extrabold text-primary"><span class="counter" data-target="1000">0</span>+</p>
+          <p class="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1">Students Reached</p>
+        </div>
+
+        <div class="bg-bg-card border border-border p-6 rounded-2xl text-center shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-primary-soft text-secondary font-bold flex items-center justify-center mx-auto mb-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <p class="text-4xl font-heading font-extrabold text-secondary"><span class="counter" data-target="250">0</span>+</p>
+          <p class="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1">Smiles Sponsored</p>
+        </div>
+
+        <div class="bg-bg-card border border-border p-6 rounded-2xl text-center shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-primary-soft text-primary font-bold flex items-center justify-center mx-auto mb-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 18h12M6 14h12M6 10h12M12 3L3 7h18l-9-4z"/></svg>
+          </div>
+          <p class="text-4xl font-heading font-extrabold text-primary"><span class="counter" data-target="15">0</span>+</p>
+          <p class="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1">Rural Schools Supported</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="reveal py-20 lg:py-28">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6 text-center">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-secondary">Join Hands With Us</span>
+        <h2 class="text-3xl sm:text-5xl font-heading font-bold text-text">Be the Catalyst for Positive Change</h2>
+        <p class="text-text-muted text-base sm:text-lg leading-relaxed font-normal">
+          Whether you choose to sponsor a child's education, volunteer your time on the ground, or contribute toward school infrastructure—every effort transforms lives in Uttarakhand.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/donate" class="inline-flex items-center justify-center gap-2 bg-festive hover:bg-festive/90 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>Make a Contribution</span>
+          </a>
+          <a href="/members/volunteers" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold text-base px-8 py-4 rounded-xl shadow-md transition-all">
+            <span>Become a Volunteer</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function initSlider() {
+    const track = document.getElementById('slider-track');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    if (!track) return;
+
+    let current = 0;
+    const total = 3;
+    let interval: any;
+
+    function goTo(index: number) {
+      if (!track) return;
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      current = index;
+      track.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    function startAuto() {
+      stopAuto();
+      interval = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    function stopAuto() {
+      if (interval) clearInterval(interval);
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      goTo(current - 1);
+      startAuto();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      goTo(current + 1);
+      startAuto();
+    });
+
+    goTo(0);
+    startAuto();
+  }
+
+  function initCounters() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target || '0', 10);
+          if (isNaN(target)) return;
+          animate(el, target);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    function animate(el: HTMLElement, target: number) {
+      const duration = 1500;
+      const start = performance.now();
+      function update(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - (1 - progress) * (1 - progress);
+        el.textContent = Math.floor(eased * target).toString();
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    counters.forEach(c => observer.observe(c));
+  }
+
+  initSlider();
+  initCounters();
+  document.addEventListener('astro:page-load', () => {
+    initSlider();
+    initCounters();
+  });
+</script>

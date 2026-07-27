@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Spread Smiles" description="Sarvagun Society's Spread Smiles initiative sponsors uniforms and stationery for 250 students in rural Uttarakhand schools.">
+  <section class="py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <h1 class="text-4xl lg:text-5xl font-heading font-bold mb-6">Spread Smiles</h1>
+      <p class="text-lg text-text-muted leading-relaxed mb-8">
+        Sarvagun Society has launched its new initiative <strong>"Spread Smiles"</strong> which aims to improve the infrastructure of government schools in rural Uttarakhand. The initiative includes sponsoring the uniforms and stationeries of <strong>250 students</strong>.
+      </p>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-lg p-6 lg:p-8 mb-10">
+        <h2 class="font-heading font-bold text-xl mb-4 text-primary">Sponsorship Details Per Child</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-border">
+                <th class="text-left py-2 pr-4 font-semibold">Item</th>
+                <th class="text-right py-2 font-semibold">Amount</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              {[
+                ['Black Shoes', '₹400'],
+                ['White Canvas Shoes', '₹300'],
+                ['Shirt (Boy) / Kurta (Girl)', '₹300'],
+                ['Trouser (Boy) / Salwar (Girl)', '₹400'],
+                ['House T-Shirt', '₹200'],
+                ['Lower Track Pant', '₹250'],
+                ['Sweater', '₹300'],
+                ['Socks (2 pairs)', '₹60'],
+                ['Belt', '₹30'],
+              ].map(([item, amount]) => (
+                <tr>
+                  <td class="py-2 pr-4 text-text">{item}</td>
+                  <td class="text-right text-text font-medium">{amount}</td>
+                </tr>
+              ))}
+              <tr class="border-t-2 border-primary font-semibold text-primary">
+                <td class="py-2 pr-4">Total Per Child</td>
+                <td class="text-right">₹2,250</td>
+              </tr>
+              <tr class="font-bold text-lg">
+                <td class="py-2 pr-4">Total for 250 Students</td>
+                <td class="text-right">₹5,62,500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-bg-card rounded-lg border border-border p-6 lg:p-8">
+        <h2 class="font-heading font-bold text-xl mb-3">How to Contribute</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-4">Donations can be made by cheque in favour of <strong>Sarvagun Society Dehradun</strong> or by direct transfer to our account.</p>
+        <div class="space-y-1 text-sm">
+          <p><strong>Account:</strong> Sarvagun Society</p>
+          <p><strong>Bank:</strong> Indian Overseas Bank</p>
+          <p><strong>A/c No.:</strong> 321301000001156</p>
+          <p><strong>IFSC:</strong> IOBA0003213</p>
+        </div>
+        <p class="text-sm text-text-muted mt-4">All donations are exempted under 80-G of the Income Tax Act, 1961.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

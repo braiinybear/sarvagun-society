@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Join Us" description="Become a member of Sarvagun Society and contribute to community development in Uttarakhand.">
+  <section class="py-16 lg:py-24">
+    <div class="mx-auto max-w-[var(--spacing-page)] px-4 lg:px-6">
+      <h1 class="text-4xl lg:text-5xl font-heading font-bold mb-8">Join Us</h1>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="font-heading font-bold text-2xl mb-6">General Membership Form</h2>
+          <form class="space-y-5" action="/submit-form" method="POST">
+            <input type="hidden" name="_form" value="membership" />
+            <div>
+              <label for="name" class="block text-sm font-medium text-text mb-1">Name</label>
+              <input type="text" id="name" required class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-text mb-1">Gender</label>
+              <div class="flex gap-6">
+                <label class="flex items-center gap-2 text-sm"><input type="radio" name="gender" value="male" class="accent-primary" /> Male</label>
+                <label class="flex items-center gap-2 text-sm"><input type="radio" name="gender" value="female" class="accent-primary" /> Female</label>
+              </div>
+            </div>
+            <div>
+              <label for="father" class="block text-sm font-medium text-text mb-1">Father/Husband's Name</label>
+              <input type="text" id="father" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="dob" class="block text-sm font-medium text-text mb-1">Date of Birth</label>
+                <input type="date" id="dob" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
+              </div>
+              <div>
+                <label for="age" class="block text-sm font-medium text-text mb-1">Age</label>
+                <input type="number" id="age" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
+              </div>
+            </div>
+            <div>
+              <label for="address" class="block text-sm font-medium text-text mb-1">Address</label>
+              <textarea id="address" rows="3" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none resize-y"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-text mb-1">Profile</label>
+              <div class="flex flex-wrap gap-4">
+                {['Employed', 'Student', 'Business', 'Others'].map(opt => (
+                  <label class="flex items-center gap-2 text-sm"><input type="radio" name="profile" value={opt.toLowerCase()} class="accent-primary" /> {opt}</label>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label for="interests" class="block text-sm font-medium text-text mb-1">Interests/Hobbies</label>
+              <input type="text" id="interests" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-text mb-1">Associated with any other society?</label>
+              <div class="flex gap-6">
+                <label class="flex items-center gap-2 text-sm"><input type="radio" name="other-society" value="yes" class="accent-primary" /> Yes</label>
+                <label class="flex items-center gap-2 text-sm"><input type="radio" name="other-society" value="no" class="accent-primary" /> No</label>
+              </div>
+            </div>
+            <div>
+              <label for="why" class="block text-sm font-medium text-text mb-1">Why do you want to join Sarvagun Society?</label>
+              <textarea id="why" rows="3" class="w-full bg-white border border-border rounded-md px-4 py-3 text-text focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none resize-y"></textarea>
+            </div>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="agree" required class="mt-1 accent-primary" />
+              <label for="agree" class="text-sm text-text-muted">I have read the By-laws of the society and agree to become a general member. I shall fulfill necessary obligations as a general member of the society.</label>
+            </div>
+            <button type="submit" class="bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-primary-hover transition-colors">Submit Application</button>
+          </form>
+        </div>
+        <div>
+          <div class="bg-bg-card rounded-lg border border-border p-8 sticky top-24">
+            <h2 class="font-heading font-bold text-xl mb-4">Why Join Us?</h2>
+            <ul class="space-y-3 text-sm text-text-muted">
+              <li class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-soft flex items-center justify-center text-xs text-primary font-bold">1</span>
+                Contribute to meaningful community work in Uttarakhand
+              </li>
+              <li class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-soft flex items-center justify-center text-xs text-primary font-bold">2</span>
+                Be part of a dedicated team inspired by Swami Vivekananda's vision
+              </li>
+              <li class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-soft flex items-center justify-center text-xs text-primary font-bold">3</span>
+                Make a direct impact on education, environment, and rural development
+              </li>
+              <li class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-soft flex items-center justify-center text-xs text-primary font-bold">4</span>
+                Access to voting rights in the General Body as a General Member
+              </li>
+            </ul>
+            <p class="text-sm text-text-muted mt-6">Membership fee: <strong>₹1,000/year</strong></p>
+            <p class="text-xs text-text-muted mt-4">All donations exempted under 80-G of Income Tax Act, 1961.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
